@@ -64,6 +64,21 @@ bool test_body_size_3() {
     Candle candle(20.0, 25.0, 15.0, 10.0);
     return candle.body_size() == 10.0;  // Красная свеча
 
+// Тесты для is_red
+bool test_is_red_1() {
+    Candle candle(20.0, 25.0, 15.0, 10.0);
+    return candle.is_red();  // Обычный случай
+}
+
+bool test_is_red_2() {
+    Candle candle(10.0, 20.0, 5.0, 15.0);
+    return !candle.is_red(); // Зеленая свеча
+}
+
+bool test_is_red_3() {
+    Candle candle(15.0, 15.0, 15.0, 15.0);
+    return !candle.is_red(); // Граничный случай: равны
+
 // Функция для инициализации всех тестов
 void initTests() {
     tests.push_back(test_body_contains_1);
@@ -81,6 +96,10 @@ void initTests() {
     tests.push_back(test_body_size_1);
     tests.push_back(test_body_size_2);
     tests.push_back(test_body_size_3);
+
+    tests.push_back(test_is_red_1);
+    tests.push_back(test_is_red_2);
+    tests.push_back(test_is_red_3);
 }
 
 int launchTests()
