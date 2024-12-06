@@ -19,11 +19,30 @@ bool test_body_contains_3() {
     return !candle.body_contains(5.0);   // Цена вне тела
 }
 
+// Тесты для contains
+bool test_contains_1() {
+    Candle candle(10.0, 20.0, 5.0, 15.0);
+    return candle.contains(15.0);  // Цена внутри
+}
+
+bool test_contains_2() {
+    Candle candle(10.0, 20.0, 5.0, 15.0);
+    return candle.contains(20.0);  // Граничный случай: равен high
+}
+
+bool test_contains_3() {
+    Candle candle(10.0, 20.0, 5.0, 15.0);
+    return !candle.contains(21.0); // Цена выше high
+
 // Функция для инициализации всех тестов
 void initTests() {
     tests.push_back(test_body_contains_1);
     tests.push_back(test_body_contains_2);
     tests.push_back(test_body_contains_3);
+
+    tests.push_back(test_contains_1);
+    tests.push_back(test_contains_2);
+    tests.push_back(test_contains_3);
 }
 
 int launchTests()
