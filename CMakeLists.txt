@@ -7,4 +7,4 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 # Добавление заголовков и исходников
-add_executable(${PROJECT_NAME} main.cpp candle.cpp)
+add_executable(${PROJECT_NAME} main.cpp candle.cpp tests.cpp)
