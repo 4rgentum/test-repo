@@ -33,6 +33,7 @@ bool test_contains_2() {
 bool test_contains_3() {
     Candle candle(10.0, 20.0, 5.0, 15.0);
     return !candle.contains(21.0); // Цена выше high
+}
 
 // Тесты для full_size
 bool test_full_size_1() {
@@ -48,6 +49,7 @@ bool test_full_size_2() {
 bool test_full_size_3() {
     Candle candle(10.0, 25.0, -5.0, 15.0);
     return candle.full_size() == 30.0; // Свеча пересекает ноль
+}
 
 // Тесты для body_size
 bool test_body_size_1() {
@@ -63,6 +65,7 @@ bool test_body_size_2() {
 bool test_body_size_3() {
     Candle candle(20.0, 25.0, 15.0, 10.0);
     return candle.body_size() == 10.0;  // Красная свеча
+}
 
 // Тесты для is_red
 bool test_is_red_1() {
@@ -78,6 +81,7 @@ bool test_is_red_2() {
 bool test_is_red_3() {
     Candle candle(15.0, 15.0, 15.0, 15.0);
     return !candle.is_red(); // Граничный случай: равны
+}
 
 // Тесты для is_green
 bool test_is_green_1() {
@@ -93,6 +97,7 @@ bool test_is_green_2() {
 bool test_is_green_3() {
     Candle candle(15.0, 15.0, 15.0, 15.0);
     return !candle.is_green(); // Граничный случай: равны
+}
 
 // Функция для инициализации всех тестов
 void initTests() {
