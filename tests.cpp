@@ -34,6 +34,21 @@ bool test_contains_3() {
     Candle candle(10.0, 20.0, 5.0, 15.0);
     return !candle.contains(21.0); // Цена выше high
 
+// Тесты для full_size
+bool test_full_size_1() {
+    Candle candle(10.0, 20.0, 5.0, 15.0);
+    return candle.full_size() == 15.0;  // Обычный случай
+}
+
+bool test_full_size_2() {
+    Candle candle(10.0, 10.0, 10.0, 10.0);
+    return candle.full_size() == 0.0;   // Граничный случай: все равны
+}
+
+bool test_full_size_3() {
+    Candle candle(10.0, 25.0, -5.0, 15.0);
+    return candle.full_size() == 30.0; // Свеча пересекает ноль
+
 // Функция для инициализации всех тестов
 void initTests() {
     tests.push_back(test_body_contains_1);
@@ -43,6 +58,10 @@ void initTests() {
     tests.push_back(test_contains_1);
     tests.push_back(test_contains_2);
     tests.push_back(test_contains_3);
+
+    tests.push_back(test_full_size_1);
+    tests.push_back(test_full_size_2);
+    tests.push_back(test_full_size_3);
 }
 
 int launchTests()
