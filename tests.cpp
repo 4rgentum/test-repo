@@ -49,6 +49,21 @@ bool test_full_size_3() {
     Candle candle(10.0, 25.0, -5.0, 15.0);
     return candle.full_size() == 30.0; // Свеча пересекает ноль
 
+// Тесты для body_size
+bool test_body_size_1() {
+    Candle candle(10.0, 20.0, 5.0, 15.0);
+    return candle.body_size() == 5.0;   // Обычный случай
+}
+
+bool test_body_size_2() {
+    Candle candle(15.0, 20.0, 5.0, 15.0);
+    return candle.body_size() == 0.0;   // Граничный случай: тело отсутствует
+}
+
+bool test_body_size_3() {
+    Candle candle(20.0, 25.0, 15.0, 10.0);
+    return candle.body_size() == 10.0;  // Красная свеча
+
 // Функция для инициализации всех тестов
 void initTests() {
     tests.push_back(test_body_contains_1);
@@ -62,6 +77,10 @@ void initTests() {
     tests.push_back(test_full_size_1);
     tests.push_back(test_full_size_2);
     tests.push_back(test_full_size_3);
+
+    tests.push_back(test_body_size_1);
+    tests.push_back(test_body_size_2);
+    tests.push_back(test_body_size_3);
 }
 
 int launchTests()
